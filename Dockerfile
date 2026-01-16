@@ -9,6 +9,10 @@ RUN apt-get update && apt-get install -y \
 
 RUN apt-get update && apt-get install git -y
 
+# Uncomment if you want to install opencode inside the container
+# RUN apt-get install curl
+# RUN curl -fsSL https://opencode.ai/install | bash
+
 # Set working directory
 WORKDIR /app
 
