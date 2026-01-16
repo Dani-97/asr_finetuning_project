@@ -1,5 +1,5 @@
 # Base image
-FROM python:3.10-slim
+FROM python:3.10-slim AS base
 
 # Install system dependencies required by librosa
 RUN apt-get update && apt-get install -y \
@@ -23,7 +23,13 @@ COPY requirements.txt .
 RUN pip install --no-cache-dir -r requirements.txt
 
 # Copy application code
-COPY . .
+COPY keyword_spotting_code .
+COPY whisper_training_code .
 
 # Default command
 # CMD ["python", "main.py"]
+
+FROM base AS include_opencode
+
+RUN apt-get update && apt-get install curl -y
+RUN curl -fsSL https://opencode.ai/install | bash
