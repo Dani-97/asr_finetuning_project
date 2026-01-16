@@ -1,0 +1,13 @@
+accelerate>=0.26.0
+datasets[audio]
+evaluate
+matplotlib
+numpy
+pandas
+torch
+torchvision
+transformers==4.48.0
+scikit-learn
+librosa
+jiwer
+tensorboard

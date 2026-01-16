@@ -1,0 +1,16 @@
+python3 train_with_holdout_cv.py \
+    --language spanish \
+    --model_name openai/whisper-tiny \
+    --train_mode frozen_encoder \
+    --learning_rate 5e-6 \
+    --patience 10 \
+    --cv_folds 5 \
+    --n_holdouts 5 \
+    --seed_list 1 2 3 4 5 \
+    --batch_size 16 \
+    --test_size 3960 \
+    --test_size_is_absolute \
+    --use_augmentation \
+    --audio_dir ./common_voice_dataset/es_all \
+    --metadata_file_path ./common_voice_dataset/es_all.tsv \
+    --output_dir whisper-tiny-finetuned-es
